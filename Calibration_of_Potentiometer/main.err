@@ -1,0 +1,12 @@
+>>> Warning 203 "main.c" Line 40(1,1): Condition always TRUE
+*** Error 12 "main.c" Line 46(4,7): Undefined identifier   pwm
+*** Error 12 "main.c" Line 47(4,7): Undefined identifier   pwm
+*** Error 12 "main.c" Line 48(8,11): Undefined identifier   pwm
+*** Error 51 "main.c" Line 50(4,8): A numeric expression must appear here
+*** Error 51 "main.c" Line 52(4,8): A numeric expression must appear here
+*** Error 12 "main.c" Line 54(14,17): Undefined identifier   Ref
+*** Error 12 "main.c" Line 55(15,18): Undefined identifier   Ref
+*** Error 12 "main.c" Line 56(21,24): Undefined identifier   pwm
+*** Error 12 "main.c" Line 60(13,16): Undefined identifier   Ref
+*** Error 12 "main.c" Line 61(21,24): Undefined identifier   Ref
+*** Error 12 "main.c" Line 62(21,24): Undefined identifier   pwm

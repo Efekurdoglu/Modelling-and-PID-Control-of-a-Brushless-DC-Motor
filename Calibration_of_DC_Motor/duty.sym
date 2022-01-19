@@ -1,0 +1,62 @@
+004-005 @READ_PROGRAM_MEMORY8.P1
+004-005 @WRITE_PROGRAM_MEMORY8.P2
+008     PSP_DATA
+015     CCP_1_LOW
+015     CCP_1
+016     CCP_1_HIGH
+01B     CCP_2
+01B     CCP_2_LOW
+01C     CCP_2_HIGH
+020     @TRIS_C
+021     main.result
+022-023 pwm1_set.mypwm
+024     pwm1_set.@SCRATCH1
+025     @delay_ms1.P1
+077     @SCRATCH
+078     @SCRATCH
+078     _RETURN_
+079     @SCRATCH
+07A     @SCRATCH
+09C.6   C1OUT
+09C.7   C2OUT
+10D-10E @WRITE_PROGRAM_MEMORY8.P1
+10D-10E @READ_PROGRAM_MEMORY8.P2
+
+ROM Allocation:
+000004  @delay_ms1
+000018  pwm1_set
+000033  main
+000033  @cinit1
+00003C  @cinit2
+
+Project Directory:
+    C:\Users\bedir\Desktop\proje\code\duty cycle\
+
+Project Files:
+    duty.c                                                  [08-Ara-21 15:06  CRC=15255E98]
+    ..\..\..\..\..\..\Program Files (x86)\PICC\Devices\16F877A.h [21-Haz-13 16:04  CRC=4E65664C]
+
+Source signature=B1F02B30
+
+Units:
+    duty (main)
+
+Compiler Settings:
+    Processor:      PIC16F877A
+    Pointer Size:   16
+    ADC Range:      0-1023
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+
+Output Files:
+    XREF file:   duty.xsym
+    Errors:      duty.err
+    Ext Symbols: duty.esym
+    INHX8:       duty.hex
+    Symbols:     duty.sym
+    List:        duty.lst
+    Debug/COFF:  duty.cof
+    Project:     duty.ccspjt
+    Call Tree:   duty.tre
+    Statistics:  duty.STA

@@ -1,0 +1,386 @@
+CCS PCM C Compiler, Version 5.007, 61971               15-Ara-21 15:52
+
+               Filename:   C:\Users\bedir\Desktop\proje\a\main.lst
+
+               ROM used:   314 words (4%)
+                           Largest free fragment is 2048
+               RAM used:   7 (2%) at main() level
+                           17 (5%) worst case
+               Stack used: 0 locations
+               Stack size: 8
+
+*
+0000:  MOVLW  00
+0001:  MOVWF  0A
+0002:  GOTO   0D0
+0003:  NOP
+.................... #include <16F877A.h> 
+.................... //////// Standard Header file for the PIC16F877A device //////////////// 
+.................... #device PIC16F877A 
+0004:  DATA D6,30
+0005:  DATA EC,3A
+0006:  DATA E5,1E
+0007:  DATA 25,36
+0008:  DATA 75,00
+*
+001D:  MOVF   0B,W
+001E:  MOVWF  24
+001F:  BCF    0B.7
+0020:  BSF    03.5
+0021:  BSF    03.6
+0022:  BSF    0C.7
+0023:  BSF    0C.0
+0024:  NOP
+0025:  NOP
+0026:  BTFSC  03.0
+0027:  GOTO   050
+0028:  BCF    03.5
+0029:  MOVF   0C,W
+002A:  ANDLW  7F
+002B:  BCF    03.6
+002C:  MOVWF  25
+002D:  BSF    03.6
+002E:  MOVF   0D,W
+002F:  BCF    03.6
+0030:  MOVWF  26
+0031:  BSF    03.6
+0032:  MOVF   0F,W
+0033:  BCF    03.6
+0034:  MOVWF  27
+0035:  MOVF   25,W
+0036:  BTFSS  0C.4
+0037:  GOTO   036
+0038:  MOVWF  19
+0039:  MOVF   26,W
+003A:  BSF    03.6
+003B:  MOVWF  0D
+003C:  BCF    03.6
+003D:  MOVF   27,W
+003E:  BSF    03.6
+003F:  MOVWF  0F
+0040:  BSF    03.5
+0041:  BSF    0C.7
+0042:  BSF    0C.0
+0043:  NOP
+0044:  NOP
+0045:  BCF    03.5
+0046:  BCF    03.6
+0047:  DECFSZ 23,F
+0048:  GOTO   04A
+0049:  GOTO   04D
+004A:  BSF    03.5
+004B:  BSF    03.6
+004C:  GOTO   050
+004D:  GOTO   070
+004E:  BSF    03.5
+004F:  BSF    03.6
+0050:  BCF    03.5
+0051:  RLF    0C,W
+0052:  RLF    0E,W
+0053:  ANDLW  7F
+0054:  BCF    03.6
+0055:  MOVWF  25
+0056:  BSF    03.6
+0057:  MOVF   0D,W
+0058:  BCF    03.6
+0059:  MOVWF  26
+005A:  BSF    03.6
+005B:  MOVF   0F,W
+005C:  BCF    03.6
+005D:  MOVWF  27
+005E:  MOVF   25,W
+005F:  BTFSS  0C.4
+0060:  GOTO   05F
+0061:  MOVWF  19
+0062:  MOVF   26,W
+0063:  BSF    03.6
+0064:  MOVWF  0D
+0065:  BCF    03.6
+0066:  MOVF   27,W
+0067:  BSF    03.6
+0068:  MOVWF  0F
+0069:  INCF   0D,F
+006A:  BTFSC  03.2
+006B:  INCF   0F,F
+006C:  BCF    03.0
+006D:  BCF    03.6
+006E:  DECFSZ 23,F
+006F:  GOTO   020
+0070:  BTFSC  24.7
+0071:  BSF    0B.7
+0072:  BCF    0A.3
+0073:  BCF    0A.4
+0074:  GOTO   12A (RETURN)
+0075:  CLRF   2B
+0076:  MOVF   04,W
+0077:  MOVWF  2A
+0078:  BCF    2B.0
+0079:  BTFSC  03.7
+007A:  BSF    2B.0
+007B:  SWAPF  24,W
+007C:  IORLW  F0
+007D:  MOVWF  26
+007E:  ADDWF  26,F
+007F:  ADDLW  E2
+0080:  MOVWF  27
+0081:  ADDLW  32
+0082:  MOVWF  29
+0083:  MOVF   24,W
+0084:  ANDLW  0F
+0085:  ADDWF  27,F
+0086:  ADDWF  27,F
+0087:  ADDWF  29,F
+0088:  ADDLW  E9
+0089:  MOVWF  28
+008A:  ADDWF  28,F
+008B:  ADDWF  28,F
+008C:  SWAPF  23,W
+008D:  ANDLW  0F
+008E:  ADDWF  28,F
+008F:  ADDWF  29,F
+0090:  RLF    28,F
+0091:  RLF    29,F
+0092:  COMF   29,F
+0093:  RLF    29,F
+0094:  MOVF   23,W
+0095:  ANDLW  0F
+0096:  ADDWF  29,F
+0097:  RLF    26,F
+0098:  MOVLW  07
+0099:  MOVWF  25
+009A:  MOVLW  0A
+009B:  ADDWF  29,F
+009C:  DECF   28,F
+009D:  BTFSS  03.0
+009E:  GOTO   09B
+009F:  ADDWF  28,F
+00A0:  DECF   27,F
+00A1:  BTFSS  03.0
+00A2:  GOTO   09F
+00A3:  ADDWF  27,F
+00A4:  DECF   26,F
+00A5:  BTFSS  03.0
+00A6:  GOTO   0A3
+00A7:  ADDWF  26,F
+00A8:  DECF   25,F
+00A9:  BTFSS  03.0
+00AA:  GOTO   0A7
+00AB:  MOVLW  25
+00AC:  MOVWF  04
+00AD:  BCF    03.7
+00AE:  MOVLW  07
+00AF:  ANDWF  2A,W
+00B0:  BCF    2A.6
+00B1:  ADDWF  04,F
+00B2:  MOVLW  29
+00B3:  SUBWF  04,W
+00B4:  BTFSC  03.2
+00B5:  BSF    2A.6
+00B6:  MOVF   00,W
+00B7:  MOVWF  77
+00B8:  BTFSS  03.2
+00B9:  GOTO   0C2
+00BA:  BTFSC  2A.6
+00BB:  GOTO   0C2
+00BC:  BTFSC  2A.4
+00BD:  GOTO   0CA
+00BE:  BTFSC  2A.3
+00BF:  GOTO   0C2
+00C0:  MOVLW  20
+00C1:  GOTO   0C5
+00C2:  BSF    2A.3
+00C3:  BCF    2A.4
+00C4:  MOVLW  30
+00C5:  ADDWF  77,F
+00C6:  MOVF   77,W
+00C7:  BTFSS  0C.4
+00C8:  GOTO   0C7
+00C9:  MOVWF  19
+00CA:  INCF   04,F
+00CB:  BTFSS  2A.6
+00CC:  GOTO   0B2
+00CD:  BCF    0A.3
+00CE:  BCF    0A.4
+00CF:  GOTO   131 (RETURN)
+....................  
+.................... #list 
+....................  
+.................... #device ADC=10 
+.................... #FUSES NOWDT                     // No Watch Dog Timer 
+.................... #FUSES NOBROWNOUT                // No brownout reset 
+.................... #FUSES NOLVP                     // No low voltage prgming, B3(PIC16) or B5(PIC18) used for I/O 
+....................  
+.................... #use delay(crystal=20000000)     // CONFIGURE According to your crystal frequency 
+*
+0009:  MOVLW  24
+000A:  MOVWF  04
+000B:  BCF    03.7
+000C:  MOVF   00,W
+000D:  BTFSC  03.2
+000E:  GOTO   01C
+000F:  MOVLW  06
+0010:  MOVWF  78
+0011:  CLRF   77
+0012:  DECFSZ 77,F
+0013:  GOTO   012
+0014:  DECFSZ 78,F
+0015:  GOTO   011
+0016:  MOVLW  7B
+0017:  MOVWF  77
+0018:  DECFSZ 77,F
+0019:  GOTO   018
+001A:  DECFSZ 00,F
+001B:  GOTO   00F
+001C:  RETURN
+....................  
+.................... // Configuration for Serial Communication 
+.................... #use rs232 (baud=9600,xmit=PIN_C6, rcv=PIN_C7, parity=N, stop=1) // UNCOMMENT If you need serial communication 
+....................  
+.................... #define MOTOR_DIR PIN_D0       // CONFIGURE; According to your direction pin 
+....................  
+.................... //custom function prototype 
+.................... void pwm1_set(int16 mypwm);      // Used for changing PWM1 value 
+....................  
+.................... void main() 
+*
+00D0:  MOVLW  81
+00D1:  BSF    03.5
+00D2:  MOVWF  19
+00D3:  MOVLW  A6
+00D4:  MOVWF  18
+00D5:  MOVLW  90
+00D6:  BCF    03.5
+00D7:  MOVWF  18
+00D8:  MOVLW  FF
+00D9:  MOVWF  20
+00DA:  BSF    03.5
+00DB:  BSF    1F.0
+00DC:  BSF    1F.1
+00DD:  BSF    1F.2
+00DE:  BCF    1F.3
+00DF:  MOVLW  07
+00E0:  MOVWF  1C
+00E1:  BCF    03.7
+00E2:  MOVLW  1F
+00E3:  ANDWF  03,F
+.................... { 
+....................    // PWM CONFIGURATION 
+....................    delay_ms(10); 
+00E4:  MOVLW  0A
+00E5:  BCF    03.5
+00E6:  MOVWF  24
+00E7:  CALL   009
+....................    set_tris_c(0x00);                      // Set all portc pins as output 
+00E8:  MOVLW  00
+00E9:  BSF    03.5
+00EA:  MOVWF  07
+00EB:  BCF    03.5
+00EC:  MOVWF  20
+....................    set_tris_b(0x00); 
+00ED:  BSF    03.5
+00EE:  MOVWF  06
+....................    set_tris_d(0x00); 
+00EF:  MOVWF  08
+....................    // Set all portb pins as output 
+....................    setup_ccp1(CCP_PWM);                   // PWM signal output at CCP1 pin 17 
+00F0:  BCF    03.5
+00F1:  BCF    20.2
+00F2:  MOVF   20,W
+00F3:  BSF    03.5
+00F4:  MOVWF  07
+00F5:  BCF    03.5
+00F6:  BCF    07.2
+00F7:  MOVLW  0C
+00F8:  MOVWF  17
+....................    setup_timer_2(T2_DIV_BY_16, 255, 1);   // CONFIGURE Timer Settings 
+00F9:  MOVLW  00
+00FA:  MOVWF  78
+00FB:  IORLW  06
+00FC:  MOVWF  12
+00FD:  MOVLW  FF
+00FE:  BSF    03.5
+00FF:  MOVWF  12
+....................     
+....................    // ANALOG CONFIGURATION 
+....................    unsigned long result;                           // Analog Reading Variable 
+....................    setup_adc_ports(ALL_ANALOG);                  // CONFIGURE Analog Pin 
+0100:  BCF    1F.0
+0101:  BCF    1F.1
+0102:  BCF    1F.2
+0103:  BCF    1F.3
+....................    setup_adc(ADC_CLOCK_DIV_32);           // Enable ADC and set clock for ADC 
+0104:  BCF    1F.6
+0105:  BCF    03.5
+0106:  BCF    1F.6
+0107:  BSF    1F.7
+0108:  BSF    03.5
+0109:  BSF    1F.7
+010A:  BCF    03.5
+010B:  BSF    1F.0
+....................  
+....................                  // CONFIGURE Motor Direction 
+....................     
+....................    while(1) 
+....................    { 
+....................    set_adc_channel(3);          // CONFIGURE Analog Reading Channel 
+010C:  MOVLW  18
+010D:  MOVWF  78
+010E:  MOVF   1F,W
+010F:  ANDLW  C7
+0110:  IORWF  78,W
+0111:  MOVWF  1F
+....................    result = read_adc();         // Start and Read A/D 
+0112:  BSF    1F.2
+0113:  BTFSC  1F.2
+0114:  GOTO   113
+0115:  BSF    03.5
+0116:  MOVF   1E,W
+0117:  BCF    03.5
+0118:  MOVWF  21
+0119:  MOVF   1E,W
+011A:  MOVWF  22
+....................    delay_us(10);                // Allow time after channel selection and reading 
+011B:  MOVLW  10
+011C:  MOVWF  77
+011D:  DECFSZ 77,F
+011E:  GOTO   11D
+011F:  NOP
+....................    printf("Value=%lu",result);   // Print ADC value 
+0120:  MOVLW  04
+0121:  BSF    03.6
+0122:  MOVWF  0D
+0123:  MOVLW  00
+0124:  MOVWF  0F
+0125:  BCF    03.0
+0126:  MOVLW  06
+0127:  BCF    03.6
+0128:  MOVWF  23
+0129:  GOTO   01D
+012A:  MOVLW  10
+012B:  MOVWF  04
+012C:  MOVF   22,W
+012D:  MOVWF  24
+012E:  MOVF   21,W
+012F:  MOVWF  23
+0130:  GOTO   075
+....................     
+....................    delay_ms(1000); 
+0131:  MOVLW  04
+0132:  MOVWF  23
+0133:  MOVLW  FA
+0134:  MOVWF  24
+0135:  CALL   009
+0136:  DECFSZ 23,F
+0137:  GOTO   133
+0138:  GOTO   10C
+....................       //pwm1_set(800);           // UNCOMMENT If you wish to have dynamic PWM duty cycle  
+....................       //pwm1_set(1000);          // UNCOMMENT If you wish to have dynamic PWM duty cycle 
+....................        
+....................  
+....................    } 
+.................... } 
+....................  
+0139:  SLEEP
+
+Configuration Fuses:
+   Word  1: 3F32   HS NOWDT PUT NOBROWNOUT NOLVP NOCPD NOWRT NODEBUG NOPROTECT

@@ -1,0 +1,5 @@
+>>> Warning 203 "duty.c" Line 35(1,1): Condition always TRUE
+>>> Warning 202 "duty.c" Line 28(9,15): Variable never used:   result
+      Memory usage:   ROM=2%      RAM=2% - 3%
+      0 Errors,  2 Warnings.
+Build Successful.

@@ -1,0 +1,286 @@
+CCS PCM C Compiler, Version 5.007, 61971               08-Ara-21 15:13
+
+               Filename:   C:\Users\bedir\Desktop\proje\code\duty cycle\duty.lst
+
+               ROM used:   187 words (2%)
+                           Largest free fragment is 2048
+               RAM used:   6 (2%) at main() level
+                           11 (3%) worst case
+               Stack used: 0 locations
+               Stack size: 8
+
+*
+0000:  MOVLW  00
+0001:  MOVWF  0A
+0002:  GOTO   033
+0003:  NOP
+.................... #include <16F877A.h> 
+.................... //////// Standard Header file for the PIC16F877A device //////////////// 
+.................... #device PIC16F877A 
+....................  
+.................... #list 
+....................  
+.................... #device ADC=10 
+.................... #FUSES NOWDT                     // No Watch Dog Timer 
+.................... #FUSES NOBROWNOUT                // No brownout reset 
+.................... #FUSES NOLVP                     // No low voltage prgming, B3(PIC16) or B5(PIC18) used for I/O 
+....................  
+.................... #use delay(crystal=20000000)     // CONFIGURE According to your crystal frequency 
+0004:  MOVLW  25
+0005:  MOVWF  04
+0006:  BCF    03.7
+0007:  MOVF   00,W
+0008:  BTFSC  03.2
+0009:  GOTO   017
+000A:  MOVLW  06
+000B:  MOVWF  78
+000C:  CLRF   77
+000D:  DECFSZ 77,F
+000E:  GOTO   00D
+000F:  DECFSZ 78,F
+0010:  GOTO   00C
+0011:  MOVLW  7B
+0012:  MOVWF  77
+0013:  DECFSZ 77,F
+0014:  GOTO   013
+0015:  DECFSZ 00,F
+0016:  GOTO   00A
+0017:  RETURN
+....................  
+.................... // Configuration for Serial Communication 
+.................... //#use rs232 (baud=9600,xmit=PIN_C6, rcv=PIN_C7, parity=N, stop=1) // UNCOMMENT If you need serial communication 
+....................  
+.................... #define MOTOR_DIR PIN_B2        // CONFIGURE; According to your direction pin 
+....................  
+.................... //custom function prototype 
+.................... void pwm1_set(int16 mypwm);      // Used for changing PWM1 value 
+....................  
+.................... void main() 
+*
+0033:  MOVLW  FF
+0034:  MOVWF  20
+0035:  BSF    03.5
+0036:  BSF    1F.0
+0037:  BSF    1F.1
+0038:  BSF    1F.2
+0039:  BCF    1F.3
+003A:  MOVLW  07
+003B:  MOVWF  1C
+003C:  BCF    03.7
+003D:  MOVLW  1F
+003E:  ANDWF  03,F
+.................... { 
+....................    // PWM CONFIGURATION 
+....................    delay_ms(10); 
+003F:  MOVLW  0A
+0040:  BCF    03.5
+0041:  MOVWF  25
+0042:  CALL   004
+....................    set_tris_c(0x00);                      // Set all portc pins as output 
+0043:  MOVLW  00
+0044:  BSF    03.5
+0045:  MOVWF  07
+0046:  BCF    03.5
+0047:  MOVWF  20
+....................    set_tris_b(0x00);                      // Set all portb pins as output 
+0048:  BSF    03.5
+0049:  MOVWF  06
+....................    set_tris_d(0x00); 
+004A:  MOVWF  08
+....................    setup_ccp1(CCP_PWM);                   // PWM signal output at CCP1 pin 17 
+004B:  BCF    03.5
+004C:  BCF    20.2
+004D:  MOVF   20,W
+004E:  BSF    03.5
+004F:  MOVWF  07
+0050:  BCF    03.5
+0051:  BCF    07.2
+0052:  MOVLW  0C
+0053:  MOVWF  17
+....................    setup_timer_2(T2_DIV_BY_16, 255, 1);   // CONFIGURE Timer Settings 
+0054:  MOVLW  00
+0055:  MOVWF  78
+0056:  IORLW  06
+0057:  MOVWF  12
+0058:  MOVLW  FF
+0059:  BSF    03.5
+005A:  MOVWF  12
+....................     
+....................    // ANALOG CONFIGURATION 
+....................    byte result;                           // Analog Reading Variable 
+....................    setup_adc_ports(AN0);                  // CONFIGURE Analog Pin 
+005B:  BCF    1F.0
+005C:  BSF    1F.1
+005D:  BSF    1F.2
+005E:  BSF    1F.3
+....................    setup_adc(ADC_CLOCK_DIV_32);           // Enable ADC and set clock for ADC 
+005F:  BCF    1F.6
+0060:  BCF    03.5
+0061:  BCF    1F.6
+0062:  BSF    1F.7
+0063:  BSF    03.5
+0064:  BSF    1F.7
+0065:  BCF    03.5
+0066:  BSF    1F.0
+....................     
+....................  
+....................                  // CONFIGURE Motor Direction 
+....................     
+....................    while(1) 
+....................    { 
+....................    output_high(MOTOR_DIR);   
+0067:  BSF    03.5
+0068:  BCF    06.2
+0069:  BCF    03.5
+006A:  BSF    06.2
+....................     
+....................                     // Delay between PWM duty cycles 
+....................     
+....................     
+....................       pwm1_set(102); 
+006B:  CLRF   23
+006C:  MOVLW  66
+006D:  MOVWF  22
+006E:  CALL   018
+....................        
+....................       pwm1_set(204);           // UNCOMMENT If you wish to have dynamic PWM duty cycle 
+006F:  CLRF   23
+0070:  MOVLW  CC
+0071:  MOVWF  22
+0072:  CALL   018
+....................        
+....................       pwm1_set(307);          // UNCOMMENT If you wish to have dynamic PWM duty cycle 
+0073:  MOVLW  01
+0074:  MOVWF  23
+0075:  MOVLW  33
+0076:  MOVWF  22
+0077:  CALL   018
+....................        
+....................       pwm1_set(409); 
+0078:  MOVLW  01
+0079:  MOVWF  23
+007A:  MOVLW  99
+007B:  MOVWF  22
+007C:  CALL   018
+....................       pwm1_set(512); 
+007D:  MOVLW  02
+007E:  MOVWF  23
+007F:  CLRF   22
+0080:  CALL   018
+....................       pwm1_set(614); 
+0081:  MOVLW  02
+0082:  MOVWF  23
+0083:  MOVLW  66
+0084:  MOVWF  22
+0085:  CALL   018
+....................       pwm1_set(717); 
+0086:  MOVLW  02
+0087:  MOVWF  23
+0088:  MOVLW  CD
+0089:  MOVWF  22
+008A:  CALL   018
+....................       pwm1_set(819); 
+008B:  MOVLW  03
+008C:  MOVWF  23
+008D:  MOVLW  33
+008E:  MOVWF  22
+008F:  CALL   018
+....................    output_low(MOTOR_DIR); 
+0090:  BSF    03.5
+0091:  BCF    06.2
+0092:  BCF    03.5
+0093:  BCF    06.2
+....................       pwm1_set(102); 
+0094:  CLRF   23
+0095:  MOVLW  66
+0096:  MOVWF  22
+0097:  CALL   018
+....................        
+....................       pwm1_set(204);           // UNCOMMENT If you wish to have dynamic PWM duty cycle 
+0098:  CLRF   23
+0099:  MOVLW  CC
+009A:  MOVWF  22
+009B:  CALL   018
+....................        
+....................       pwm1_set(307);          // UNCOMMENT If you wish to have dynamic PWM duty cycle 
+009C:  MOVLW  01
+009D:  MOVWF  23
+009E:  MOVLW  33
+009F:  MOVWF  22
+00A0:  CALL   018
+....................        
+....................       pwm1_set(409); 
+00A1:  MOVLW  01
+00A2:  MOVWF  23
+00A3:  MOVLW  99
+00A4:  MOVWF  22
+00A5:  CALL   018
+....................       pwm1_set(512); 
+00A6:  MOVLW  02
+00A7:  MOVWF  23
+00A8:  CLRF   22
+00A9:  CALL   018
+....................       pwm1_set(614); 
+00AA:  MOVLW  02
+00AB:  MOVWF  23
+00AC:  MOVLW  66
+00AD:  MOVWF  22
+00AE:  CALL   018
+....................       pwm1_set(717); 
+00AF:  MOVLW  02
+00B0:  MOVWF  23
+00B1:  MOVLW  CD
+00B2:  MOVWF  22
+00B3:  CALL   018
+....................       pwm1_set(819); 
+00B4:  MOVLW  03
+00B5:  MOVWF  23
+00B6:  MOVLW  33
+00B7:  MOVWF  22
+00B8:  CALL   018
+00B9:  GOTO   067
+....................       // ANALOG READING PART (UNCOMMENT IF YOU NEED) 
+....................       //set_adc_channel(0);          // CONFIGURE Analog Reading Channel 
+....................       //result = read_adc();         // Start and Read A/D 
+....................       //delay_us(10);                // Allow time after channel selection and reading 
+....................       //printf("Value=%u",result);   // Print ADC value 
+....................    } 
+.................... } 
+.................... //custom function for changing PWM1 value 
+00BA:  SLEEP
+.................... void pwm1_set(int16 mypwm) 
+.................... { 
+....................       set_pwm1_duty(mypwm); 
+*
+0018:  MOVF   23,W
+0019:  MOVWF  79
+001A:  MOVF   22,W
+001B:  MOVWF  78
+001C:  RRF    79,F
+001D:  RRF    78,F
+001E:  RRF    79,F
+001F:  RRF    78,F
+0020:  RRF    79,F
+0021:  MOVF   78,W
+0022:  MOVWF  15
+0023:  RRF    79,F
+0024:  RRF    79,W
+0025:  ANDLW  30
+0026:  MOVWF  77
+0027:  MOVF   17,W
+0028:  ANDLW  CF
+0029:  IORWF  77,W
+002A:  MOVWF  17
+....................       delay_ms(10000);                // Delay between PWM duty cycles 
+002B:  MOVLW  28
+002C:  MOVWF  24
+002D:  MOVLW  FA
+002E:  MOVWF  25
+002F:  CALL   004
+0030:  DECFSZ 24,F
+0031:  GOTO   02D
+0032:  RETURN
+.................... } 
+
+Configuration Fuses:
+   Word  1: 3F32   HS NOWDT PUT NOBROWNOUT NOLVP NOCPD NOWRT NODEBUG NOPROTECT
