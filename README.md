@@ -23,7 +23,7 @@ The relation between the rotational velocity and the back-emf voltage can be fou
 - To estimate the value of 𝐾𝑏 voltage and rotational velocity data were obtained by measurements and the data were processed with MatLab curve fitting tool.
 ![With_EMF.JPG](/With_EMF.JPG)
 #### The result of PID cotrol at the position of 90 degree
-![PID_Result_with_90_degree.JPG](/PID_Result_with_90_degree.JPG)
+![PID_Result_with_90_degree.jpg](/PID_Result_with_90_degree.jpg)
 
 ![Angular_Velocity_vs_Vb.JPG](/Angular_Velocity_vs_Vb.JPG)
 - The angle between this curve and x axis is represents Kb. 
