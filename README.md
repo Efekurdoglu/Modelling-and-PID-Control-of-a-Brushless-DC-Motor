@@ -1,1 +1,1 @@
-# Modelling-and-PID-Control-of-a-Brushless-DC-Motor
+# Modelling and PID Control of a Brushless DC Motor
