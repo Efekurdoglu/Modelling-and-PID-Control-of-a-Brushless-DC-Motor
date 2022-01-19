@@ -23,9 +23,16 @@ We have some parameters which we showed in above figure are known. One of the pa
 The relation between the rotational velocity and the back-emf voltage can be found with the Equation below :
 #### 𝑉𝑏= 𝐾𝑏*𝜔
 To estimate the value of 𝐾𝑏 voltage and rotational velocity data were obtained by measurements and the data were processed with MatLab curve fitting tool.
+![With_EMF.JPG](/With_EMF.JPG)
 
-
-
+![Angular_Velocity_vs_Vb.JPG](/Angular_Velocity_vs_Vb.JPG)
+The angle between this curve and x axis is represents Kb. 
+### Circuit Design by Hand
+![Circuit_Design.png](/Circuit_Design.png)
+## Conclusion
+We have a Brushed Dc Motor and we asked to find all the unknown parameters which are shown in Armature Control Brushed DC Motor Block Diagram. First we found frequency and period in premodeling part after that we implemented the supplied code into pic with small changes according to our system. And pwm frequrency are observed. When we rotated the motor we observed voltage out of motor. According to our frequency response we calculated rotational velocity according to duty cycle as shown in Table1.
+In modeling, we started measuring resistor of motor which 2.16 ohms + 0.1 from stone resistor. After that we estimated back emf constant by drawing w to Vb in Figure 2. 
+Foundations could be seen in Table2. 
 
 
 
