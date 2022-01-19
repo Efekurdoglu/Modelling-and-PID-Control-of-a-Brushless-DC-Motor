@@ -1,7 +1,5 @@
 # Modelling and PID Control of a Brushless DC Motor
 
-### [Video Demo For P-Controller!](https://www.youtube.com/watch?v=C9_8D4adrs4)
-
 ![Block_Diagram.JPG](/Block_Diagram.JPG)
 
 We have some parameters which we showed in above figure are known. One of the parameters [L] ignored due to negligible value. For the other values, [J and B] should be found. Finding [R] is measuring from two terminals of motor which is 2.16 Ohms. By adding stone resistor, it becomes 2.26 Ohms The main purpose of this project is to find some parameters empirically that are given in the figure. To control by using PID control we need to design 3 parts on PCB. Which is power distribution, and back EMF & filter.
@@ -18,7 +16,7 @@ We have some parameters which we showed in above figure are known. One of the pa
 - setup_timer_2(T2_DIV_BY_16,255,1);
 ### Calibration of DC Motor
 ![Calibration_of_DC_Motor.JPG](/Calibration_of_DC_Motor.JPG)
-
+### [Video Demo For P-Controller!](https://www.youtube.com/watch?v=C9_8D4adrs4)
 ## Modelling
 The relation between the rotational velocity and the back-emf voltage can be found with the Equation below :
 #### 𝑉𝑏= 𝐾𝑏*𝜔
@@ -26,7 +24,7 @@ To estimate the value of 𝐾𝑏 voltage and rotational velocity data were obta
 ![With_EMF.JPG](/With_EMF.JPG)
 
 ![Angular_Velocity_vs_Vb.JPG](/Angular_Velocity_vs_Vb.JPG)
-The angle between this curve and x axis is represents Kb. 
+- The angle between this curve and x axis is represents Kb. 
 ### Circuit Design by Hand
 ![Circuit_Design.png](/Circuit_Design.png)
 ## Conclusion
